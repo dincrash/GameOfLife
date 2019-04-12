@@ -1,4 +1,4 @@
-package karpov.vkarpov;
+package karpov;
 
 import edu.princeton.cs.introcs.StdDraw;
 
