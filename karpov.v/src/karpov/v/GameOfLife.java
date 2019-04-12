@@ -1,3 +1,5 @@
+package karpov.v;
+
 import edu.princeton.cs.introcs.StdDraw;
 
 public class GameOfLife {
@@ -6,15 +8,11 @@ public class GameOfLife {
     int[][] newSociety;
 
 
-    public GameOfLife(int rows, int cols,int canvasWidth,int canvasHeight) {
+    public GameOfLife(int rows, int cols, int canvasWidth, int canvasHeight) {
         size = new int[rows][cols];
         newSociety = new int[rows][cols];
         society = new int[rows][cols];
-        for (int r = 0; r < rows; r++) {
-            for (int c = 0; c < cols; c++) {
-                society[r][c] = 0;
-            }
-        }
+
 
         StdDraw.setCanvasSize(canvasWidth, canvasHeight);
         StdDraw.setXscale(0, rows);
@@ -23,26 +21,26 @@ public class GameOfLife {
         StdDraw.setPenRadius(0.005);
     }
 
-    public void growSeed(int seedCount,int row, int col) {
+    public void growSeed(int seedCount, int row, int col) {
 //         рандомные числа
-        for (int i = 0; i < seedCount; i++) {
-            int x = (int) (Math.random() * row);
-            int y = (int) (Math.random() * col);
-            society[x][y] = 1;
+//        for (int i = 0; i < seedCount; i++) {
+//            int x = (int) (Math.random() * row);
+//            int y = (int) (Math.random() * col);
+//            society[x][y] = 1;
+//    }
 
         //проверочные
-//        society[5][5] = 1;
-//        society[4][5] = 1;
-//        society[6][5] = 1;
-//        society[2][3] = 1;
-//        society[2][2] = 1;
-//        society[3][3] = 1;
-//        society[3][2] = 1;
-//        society[9][9] = 1;
-//        society[8][9] = 1;
+        society[5][5] = 1;
+        society[4][5] = 1;
+        society[6][5] = 1;
+        society[2][3] = 1;
+        society[2][2] = 1;
+        society[3][3] = 1;
+        society[3][2] = 1;
+        society[9][9] = 1;
+        society[8][9] = 1;
 
 
-        }
     }
 
     public void nextState() {
@@ -58,48 +56,53 @@ public class GameOfLife {
 
                 if (society[i][j] == 1) {
                     StdDraw.point(j, i);
-
-                } else {
                 }
             }
-        }
 
+        }
     }
 
-    public int GetLivingNeighbors(int x, int y) {
+    public int getLivingNeighbors(int x, int y) {
         int count = 0;
         // право
-        if (x != size.length - 1)
-            if (society[x + 1][y] == 1)
-                count++;
+        if (x != size.length - 1) {
+            count += society[x + 1][y];
+        }
         // лево
-        if (x != 0)
-            if (society[x - 1][y] == 1)
-                count++;
+        if (x != 0) {
+            count += society[x - 1][y];
+        }
+
         // вверх
-        if (y != 0)
-            if (society[x][y - 1] == 1)
-                count++;
+        if (y != 0) {
+            count += society[x][y - 1];
+        }
+
         //низ
-        if (y != size.length - 1)
-            if (society[x][y + 1] == 1)
-                count++;
+        if (y != size.length - 1) {
+            count += society[x][y + 1];
+        }
+
         //вверх право
-        if (y != 0 && x != size.length - 1)
-            if (society[x + 1][y - 1] == 1)
-                count++;
+        if (y != 0 && x != size.length - 1) {
+            count += society[x + 1][y - 1];
+        }
+
+
         //вверх лево
-        if (y != 0 && x != 0)
-            if (society[x - 1][y - 1] == 1)
-                count++;
+        if (y != 0 && x != 0) {
+            count += society[x - 1][y - 1];
+        }
+
         //низ право
-        if (y != size.length - 1 && x != size.length - 1)
-            if (society[x + 1][y + 1] == 1)
-                count++;
+        if (y != size.length - 1 && x != size.length - 1) {
+            count += society[x + 1][y + 1];
+        }
+
         //низ лево
-        if (y != size.length - 1 && x != 0)
-            if (society[x - 1][y + 1] == 1)
-                count++;
+        if (y != size.length - 1 && x != 0) {
+            count += society[x - 1][y + 1];
+        }
 
         return count;
     }
@@ -109,7 +112,7 @@ public class GameOfLife {
 
         for (int i = 0; i < society.length; i++) {
             for (int j = 0; j < society[i].length; j++) {
-                int dp = GetLivingNeighbors(i, j);
+                int dp = getLivingNeighbors(i, j);
 
                 // ввод правил игры
 
@@ -134,5 +137,6 @@ public class GameOfLife {
 
             }
         }
+
     }
 }
