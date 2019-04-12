@@ -37,7 +37,7 @@ public class Main {
 //        gameOfLife.print();
 
 
-        class SayHello extends TimerTask {
+        class Update extends TimerTask {
             public void run() {
 
                 StdDraw.clear();
@@ -49,7 +49,7 @@ public class Main {
         }
 
         Timer timer = new Timer();
-        timer.schedule(new SayHello(), 0, 100);
+        timer.schedule(new Update(), 0, 100);
 
 
     }

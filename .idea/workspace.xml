@@ -14,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/karpov.v/src/karpov/vkarpov/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+            <state relative-caret-position="627">
+              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -26,7 +26,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameOfLife.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameOfLife.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/karpov.v/src/karpov/vkarpov/GameOfLife.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
@@ -84,8 +84,8 @@
         <option value="$PROJECT_DIR$/karpov.v/src/Main.java" />
         <option value="$PROJECT_DIR$/karpov.v/src/karpov/v/GameOfLife.java" />
         <option value="$PROJECT_DIR$/karpov.v/src/karpov/v/Main.java" />
-        <option value="$PROJECT_DIR$/karpov.v/src/karpov/vkarpov/Main.java" />
         <option value="$PROJECT_DIR$/karpov.v/src/karpov/vkarpov/GameOfLife.java" />
+        <option value="$PROJECT_DIR$/karpov.v/src/karpov/vkarpov/Main.java" />
       </list>
     </option>
   </component>
@@ -256,12 +256,12 @@
       <workItem from="1555013362380" duration="807000" />
       <workItem from="1555014535317" duration="773000" />
       <workItem from="1555061025189" duration="11001000" />
-      <workItem from="1555077005537" duration="9628000" />
+      <workItem from="1555077005537" duration="9905000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101535000" />
+    <option name="totallyTimeSpent" value="101812000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -478,20 +478,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/karpov.v/src/karpov/vkarpov/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/karpov.v/src/karpov/vkarpov/GameOfLife.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/karpov.v/src/karpov/vkarpov/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
