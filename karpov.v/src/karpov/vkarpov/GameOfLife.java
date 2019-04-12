@@ -3,12 +3,10 @@ package karpov.vkarpov;
 import edu.princeton.cs.introcs.StdDraw;
 
 public class GameOfLife {
-    int[][] size;
     int[][] society;
     int[][] newSociety;
 
     public GameOfLife(int rows, int cols, int canvasWidth, int canvasHeight, double penRadius) {
-        size = new int[rows][cols];
         newSociety = new int[rows][cols];
         society = new int[rows][cols];
         StdDraw.setCanvasSize(canvasWidth, canvasHeight);
@@ -104,7 +102,7 @@ public class GameOfLife {
         }
 
         //низ лево
-        if (y != size.length - 1 && x != 0) {
+        if (y != society.length - 1 && x != 0) {
             count += society[x - 1][y + 1];
         }
 
