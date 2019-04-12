@@ -1,4 +1,4 @@
-package karpov.v;
+package karpov.vkarpov;
 
 import edu.princeton.cs.introcs.StdDraw;
 
@@ -7,25 +7,26 @@ public class GameOfLife {
     int[][] society;
     int[][] newSociety;
 
-    public GameOfLife(int rows, int cols, int canvasWidth, int canvasHeight) {
+    public GameOfLife(int rows, int cols, int canvasWidth, int canvasHeight, double penRadius) {
         size = new int[rows][cols];
         newSociety = new int[rows][cols];
         society = new int[rows][cols];
-
         StdDraw.setCanvasSize(canvasWidth, canvasHeight);
         StdDraw.setXscale(0, rows);
         StdDraw.setYscale(0, cols);
         StdDraw.setPenColor(StdDraw.DARK_GRAY);
-        StdDraw.setPenRadius(0.05);
+        StdDraw.setPenRadius(penRadius);
+        StdDraw.enableDoubleBuffering();
+
     }
 
     public void growSeed(int seedCount, int row, int col) {
 //         рандомные числа
-//        for (int i = 0; i < seedCount; i++) {
-//            int x = (int) (Math.random() * row);
-//            int y = (int) (Math.random() * col);
-//            society[x][y] = 1;
-//    }
+        for (int i = 0; i < seedCount; i++) {
+            int x = (int) (Math.random() * row);
+            int y = (int) (Math.random() * col);
+            society[x][y] = 1;
+        }
 
         //проверочные
 //        society[5][5] = 1;
@@ -39,17 +40,18 @@ public class GameOfLife {
 //        society[8][9] = 1;
 
 //        глайдер
-        society[5][5] = 1;
-        society[4][5] = 1;
-        society[6][5] = 1;
-        society[6][4] = 1;
-        society[5][3] = 1;
+//        society[5][5] = 1;
+//        society[4][5] = 1;
+//        society[6][5] = 1;
+//        society[6][4] = 1;
+//        society[5][3] = 1;
     }
 
     public void nextState() {
-        for (int i = 0; i < size.length; i++)
-            for (int j = 0; j < size[i].length; j++)
+        for (int i = 0; i < society.length; i++)
+            for (int j = 0; j < society[i].length; j++) {
                 society[i][j] = newSociety[i][j];
+            }
     }
 
 
@@ -68,7 +70,7 @@ public class GameOfLife {
     public int getLivingNeighbors(int x, int y) {
         int count = 0;
         // право
-        if (x != size.length - 1) {
+        if (x != society.length - 1) {
             count += society[x + 1][y];
         }
         // лево
@@ -82,12 +84,12 @@ public class GameOfLife {
         }
 
         //низ
-        if (y != size.length - 1) {
+        if (y != society.length - 1) {
             count += society[x][y + 1];
         }
 
         //вверх право
-        if (y != 0 && x != size.length - 1) {
+        if (y != 0 && x != society.length - 1) {
             count += society[x + 1][y - 1];
         }
 
@@ -97,7 +99,7 @@ public class GameOfLife {
         }
 
         //низ право
-        if (y != size.length - 1 && x != size.length - 1) {
+        if (y != society.length - 1 && x != society.length - 1) {
             count += society[x + 1][y + 1];
         }
 
@@ -113,31 +115,39 @@ public class GameOfLife {
     public void update() {
         for (int i = 0; i < society.length; i++) {
             for (int j = 0; j < society[i].length; j++) {
+
                 int dp = getLivingNeighbors(i, j);
 
                 // ввод правил игры
 
                 if (society[i][j] == 1) {
 
-                    if (dp < 2)
+                    if (dp < 2) {
                         newSociety[i][j] = 0;
+                    }
 
                     if (dp == 2 || dp == 3) {
-                        newSociety[i][j] = 1;
+                        {
+                            newSociety[i][j] = 1;
+                        }
                     }
-                    if (dp > 3)
+                    if (dp > 3) {
                         newSociety[i][j] = 0;
+                    }
 
                 }
                 if (society[i][j] == 0) {
                     if (dp == 3) {
-                        newSociety[i][j] = 1;
+                        {
+                            newSociety[i][j] = 1;
+                        }
                     }
                 }
 
 
             }
         }
+
         nextState();
 
     }
