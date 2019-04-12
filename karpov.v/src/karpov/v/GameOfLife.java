@@ -7,18 +7,16 @@ public class GameOfLife {
     int[][] society;
     int[][] newSociety;
 
-
     public GameOfLife(int rows, int cols, int canvasWidth, int canvasHeight) {
         size = new int[rows][cols];
         newSociety = new int[rows][cols];
         society = new int[rows][cols];
 
-
         StdDraw.setCanvasSize(canvasWidth, canvasHeight);
         StdDraw.setXscale(0, rows);
         StdDraw.setYscale(0, cols);
         StdDraw.setPenColor(StdDraw.DARK_GRAY);
-        StdDraw.setPenRadius(0.005);
+        StdDraw.setPenRadius(0.05);
     }
 
     public void growSeed(int seedCount, int row, int col) {
@@ -30,27 +28,32 @@ public class GameOfLife {
 //    }
 
         //проверочные
+//        society[5][5] = 1;
+//        society[4][5] = 1;
+//        society[6][5] = 1;
+//        society[2][3] = 1;
+//        society[2][2] = 1;
+//        society[3][3] = 1;
+//        society[3][2] = 1;
+//        society[9][9] = 1;
+//        society[8][9] = 1;
+
+//        глайдер
         society[5][5] = 1;
         society[4][5] = 1;
         society[6][5] = 1;
-        society[2][3] = 1;
-        society[2][2] = 1;
-        society[3][3] = 1;
-        society[3][2] = 1;
-        society[9][9] = 1;
-        society[8][9] = 1;
-
-
+        society[6][4] = 1;
+        society[5][3] = 1;
     }
 
     public void nextState() {
-        society = newSociety;
-
+        for (int i = 0; i < size.length; i++)
+            for (int j = 0; j < size[i].length; j++)
+                society[i][j] = newSociety[i][j];
     }
 
 
     public void print() {
-        StdDraw.clear();
         for (int i = 0; i < society.length; i++) {
             for (int j = 0; j < society[i].length; j++) {
 
@@ -88,7 +91,6 @@ public class GameOfLife {
             count += society[x + 1][y - 1];
         }
 
-
         //вверх лево
         if (y != 0 && x != 0) {
             count += society[x - 1][y - 1];
@@ -109,7 +111,6 @@ public class GameOfLife {
 
 
     public void update() {
-
         for (int i = 0; i < society.length; i++) {
             for (int j = 0; j < society[i].length; j++) {
                 int dp = getLivingNeighbors(i, j);
@@ -137,6 +138,7 @@ public class GameOfLife {
 
             }
         }
+        nextState();
 
     }
 }
