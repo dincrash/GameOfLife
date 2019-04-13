@@ -6,6 +6,7 @@ public class GameOfLife {
     int[][] society;
     int[][] newSociety;
 
+
     public GameOfLife(int rows, int cols, int canvasWidth, int canvasHeight, double penRadius) {
         newSociety = new int[rows][cols];
         society = new int[rows][cols];
@@ -20,11 +21,11 @@ public class GameOfLife {
 
     public void growSeed(int seedCount, int row, int col) {
 //         рандомные числа
-        for (int i = 0; i < seedCount; i++) {
-            int x = (int) (Math.random() * row);
-            int y = (int) (Math.random() * col);
-            society[x][y] = 1;
-        }
+//        for (int i = 0; i < seedCount; i++) {
+//            int x = (int) (Math.random() * row);
+//            int y = (int) (Math.random() * col);
+//            society[x][y] = 1;
+//        }
 
         //проверочные
 //        society[5][5] = 1;
@@ -38,18 +39,20 @@ public class GameOfLife {
 //        society[8][9] = 1;
 
 //        глайдер
-//        society[5][5] = 1;
-//        society[4][5] = 1;
-//        society[6][5] = 1;
-//        society[6][4] = 1;
-//        society[5][3] = 1;
+        society[5][5] = 1;
+        society[4][5] = 1;
+        society[6][5] = 1;
+        society[6][4] = 1;
+        society[5][3] = 1;
     }
 
     public void nextState() {
-        for (int i = 0; i < society.length; i++)
-            for (int j = 0; j < society[i].length; j++) {
-                society[i][j] = newSociety[i][j];
-            }
+//        for (int i = 0; i < society.length; i++)
+//            for (int j = 0; j < society[i].length; j++) {
+//                society[i][j] = newSociety[i][j];
+//            }
+
+
     }
 
 
@@ -122,15 +125,20 @@ public class GameOfLife {
 
                     if (dp < 2) {
                         newSociety[i][j] = 0;
+
                     }
 
                     if (dp == 2 || dp == 3) {
-                        {
+
                             newSociety[i][j] = 1;
-                        }
+
+
+
                     }
                     if (dp > 3) {
                         newSociety[i][j] = 0;
+
+
                     }
 
                 }
@@ -138,12 +146,16 @@ public class GameOfLife {
                     if (dp == 3) {
                         {
                             newSociety[i][j] = 1;
+
                         }
                     }
                 }
 
 
+//                society[i][j] = newSociety[i][j];
+
             }
+
         }
 
         nextState();
