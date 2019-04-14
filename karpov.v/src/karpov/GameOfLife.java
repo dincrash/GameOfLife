@@ -47,10 +47,10 @@ public class GameOfLife {
     }
 
     public void nextState() {
-//        for (int i = 0; i < society.length; i++)
-//            for (int j = 0; j < society[i].length; j++) {
-//                society[i][j] = newSociety[i][j];
-//            }
+        for (int i = 0; i < society.length; i++)
+            for (int j = 0; j < society[i].length; j++) {
+                society[i][j] = newSociety[i][j];
+            }
 
 
     }
@@ -118,10 +118,10 @@ public class GameOfLife {
             for (int j = 0; j < society[i].length; j++) {
 
                 int dp = getLivingNeighbors(i, j);
-
                 // ввод правил игры
 
                 if (society[i][j] == 1) {
+                    System.out.println(dp + " " + i + j);
 
                     if (dp < 2) {
                         newSociety[i][j] = 0;
@@ -150,10 +150,6 @@ public class GameOfLife {
                         }
                     }
                 }
-
-
-//                society[i][j] = newSociety[i][j];
-
             }
 
         }
