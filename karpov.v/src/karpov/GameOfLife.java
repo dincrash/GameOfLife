@@ -109,7 +109,7 @@ public class GameOfLife {
                         newSociety[i][j] = 0;
                     }
                     if (dp == 2 || dp == 3) {
-                            newSociety[i][j] = 1;
+                        newSociety[i][j] = 1;
                     }
                     if (dp > 3) {
                         newSociety[i][j] = 0;

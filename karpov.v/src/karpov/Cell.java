@@ -37,4 +37,9 @@ public class Cell {
                 y == cell.y;
     }
 
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(x, y);
+    }
 }

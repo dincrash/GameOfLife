@@ -2,6 +2,7 @@ package karpov;
 
 import edu.princeton.cs.introcs.StdDraw;
 
+import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -10,32 +11,46 @@ import static edu.princeton.cs.introcs.StdDraw.show;
 public class Main {
 
     //размер поля 100х100 точек
-    public static final int X_COUNT_PIXEL = 10;
-    public static final int Y_COUNT_PIXEL = 10;
+    public static final int X_COUNT_PIXEL = 2000;
+    public static final int Y_COUNT_PIXEL = 2000;
     //количество живых точек
-    public static final int SEED_COUNT = 90;
+    public static final int SEED_COUNT = 1000000;
     //размер холста
     public static final int X_SIZE_CANVAS = 1000;
     public static final int Y_SIZE_CANVAS = 1000;
     //размер пикселя
-    public static final double PEN_RADIUS = 0.05;
+    public static final double PEN_RADIUS = 0.000005;
     //время обновление
     public static final int TIME_UPDATE = 500;
 
     public static void main(String[] args) {
 //        на листах
-        ListGameOfLife listGameOfLife = new ListGameOfLife(X_COUNT_PIXEL, Y_COUNT_PIXEL, X_SIZE_CANVAS, Y_SIZE_CANVAS, PEN_RADIUS);
-        listGameOfLife.growSeed(SEED_COUNT, X_COUNT_PIXEL, Y_COUNT_PIXEL);
-        class Update extends TimerTask {
-            public void run() {
-                StdDraw.clear();
-                listGameOfLife.print(X_COUNT_PIXEL,Y_COUNT_PIXEL);
-                listGameOfLife.update(X_COUNT_PIXEL,Y_COUNT_PIXEL,SEED_COUNT);
-                show();
-            }
-        }
-        Timer timer = new Timer();
-        timer.schedule(new Update(), 0, TIME_UPDATE);
+//        ListGameOfLife listGameOfLife = new ListGameOfLife(X_COUNT_PIXEL, Y_COUNT_PIXEL, X_SIZE_CANVAS, Y_SIZE_CANVAS, PEN_RADIUS);
+//        listGameOfLife.growSeed(SEED_COUNT, X_COUNT_PIXEL, Y_COUNT_PIXEL);
+//        class Update extends TimerTask {
+//            public void run() {
+//                StdDraw.clear();
+//                listGameOfLife.print(X_COUNT_PIXEL,Y_COUNT_PIXEL);
+//                listGameOfLife.update(X_COUNT_PIXEL,Y_COUNT_PIXEL,SEED_COUNT);
+//                show();
+//            }
+//        }
+//        Timer timer = new Timer();
+//        timer.schedule(new Update(), 0, TIME_UPDATE);
+
+        //        на сетах
+//        SetGameOfLife setGameOfLife = new SetGameOfLife(X_COUNT_PIXEL, Y_COUNT_PIXEL, X_SIZE_CANVAS, Y_SIZE_CANVAS, PEN_RADIUS);
+//        setGameOfLife.growSeed(SEED_COUNT, X_COUNT_PIXEL, Y_COUNT_PIXEL);
+//        class Update extends TimerTask {
+//            public void run() {
+//                StdDraw.clear();
+//                setGameOfLife.print(X_COUNT_PIXEL,Y_COUNT_PIXEL);
+//                setGameOfLife.update(X_COUNT_PIXEL,Y_COUNT_PIXEL);
+//                show();
+//            }
+//        }
+//        Timer timer = new Timer();
+//        timer.schedule(new Update(), 0, TIME_UPDATE);
 
         //на массивах
 //        GameOfLife gameOfLife = new GameOfLife(X_COUNT_PIXEL, Y_COUNT_PIXEL, X_SIZE_CANVAS, Y_SIZE_CANVAS, PEN_RADIUS);
