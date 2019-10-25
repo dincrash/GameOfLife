@@ -1,4 +1,4 @@
-# Dillinger
+# Conway Game of Life
 
 Created by dincrash(Vladislav Karpov)
 
@@ -30,4 +30,5 @@ size:
 100x100
 5000 life cell
 canvas 1000x1000
+ 
 <img src="1.png" width="400">
