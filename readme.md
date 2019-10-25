@@ -8,7 +8,6 @@ The game is a zero-player game, meaning that its evolution is determined by its 
 
 ### Tech
 
-Dillinger uses a number of open source projects to work properly:
 
 I create conway game based on desktop app:
 java 1.8
