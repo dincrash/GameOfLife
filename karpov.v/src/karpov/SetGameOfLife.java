@@ -9,7 +9,7 @@ public class SetGameOfLife {
 
     Set<Cell> populate = new HashSet<>();
     Set<Cell> newPopulate = new HashSet<>();
-
+        
     public SetGameOfLife(int rows, int cols, int canvasWidth, int canvasHeight, double penRadius) {
         StdDraw.setCanvasSize(canvasWidth, canvasHeight);
         StdDraw.setXscale(0, rows);

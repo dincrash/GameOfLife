@@ -11,15 +11,15 @@ import static edu.princeton.cs.introcs.StdDraw.show;
 public class Main {
 
     //размер поля 100х100 точек
-    public static final int X_COUNT_PIXEL = 2000;
-    public static final int Y_COUNT_PIXEL = 2000;
+    public static final int X_COUNT_PIXEL = 100;
+    public static final int Y_COUNT_PIXEL = 100;
     //количество живых точек
-    public static final int SEED_COUNT = 1000000;
+    public static final int SEED_COUNT = 5000;
     //размер холста
     public static final int X_SIZE_CANVAS = 1000;
     public static final int Y_SIZE_CANVAS = 1000;
     //размер пикселя
-    public static final double PEN_RADIUS = 0.000005;
+    public static final double PEN_RADIUS = 0.01;
     //время обновление
     public static final int TIME_UPDATE = 500;
 
@@ -53,19 +53,19 @@ public class Main {
 //        timer.schedule(new Update(), 0, TIME_UPDATE);
 
         //на массивах
-//        GameOfLife gameOfLife = new GameOfLife(X_COUNT_PIXEL, Y_COUNT_PIXEL, X_SIZE_CANVAS, Y_SIZE_CANVAS, PEN_RADIUS);
-//        gameOfLife.growSeed(SEED_COUNT, X_COUNT_PIXEL, Y_COUNT_PIXEL);
-//        gameOfLife.print();
-//        class Update extends TimerTask {
-//            public void run() {
-//                StdDraw.clear();
-//                gameOfLife.print();
-//                show();
-//                gameOfLife.update();
-//            }
-//        }
-//        Timer timer = new Timer();
-//        timer.schedule(new Update(), 0, TIME_UPDATE);
+        GameOfLife gameOfLife = new GameOfLife(X_COUNT_PIXEL, Y_COUNT_PIXEL, X_SIZE_CANVAS, Y_SIZE_CANVAS, PEN_RADIUS);
+        gameOfLife.growSeed(SEED_COUNT, X_COUNT_PIXEL, Y_COUNT_PIXEL);
+        gameOfLife.print();
+        class Update extends TimerTask {
+            public void run() {
+                StdDraw.clear();
+                gameOfLife.print();
+                show();
+                gameOfLife.update();
+            }
+        }
+        Timer timer = new Timer();
+        timer.schedule(new Update(), 0, TIME_UPDATE);
     }
 }
 
